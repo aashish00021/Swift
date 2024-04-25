@@ -9,20 +9,31 @@
  */
 
 protocol Workout {
-    var distance : Double {get}
-    var time : Double {get}
+    var distance : Double {get set}
+    var time : Double {get set}
 }
 
 //:  Create two structs, `RunningWorkout` and `SwimmingWorkout`. Both should conform to the `Workout` protocol. Uncomment the function `simpleWorkoutDescription` below, create an instance of each of your structs, and call `simpleWorkoutDescription` twice, passing in a `RunningWorkout` object and then a `SwimmingWorkout` object.
-//func simpleWorkoutDescription(workout: Workout) {
-//    print("You went \(workout.distance) meters in \(workout.time) seconds.")
-//}
-struct RunningWorkout: Workout{
-    
-    
-    
+
+func simpleWorkoutDescription(workout: Workout) {
+    print("You went \(workout.distance) meters in \(workout.time) seconds.")
 }
 
+struct RunningWorkout: Workout {
+    var distance: Double
+    var time: Double
+}
+
+struct SwimmingWorkout: Workout {
+    var distance: Double
+    var time: Double
+}
+
+let run = RunningWorkout(distance: 1000, time: 100)
+let swim = SwimmingWorkout(distance: 800, time: 40)
+
+simpleWorkoutDescription(workout: run)
+simpleWorkoutDescription(workout: swim)
 
 /*:
 [Previous](@previous)  |  page 4 of 5  |  [Next: App Exercise - Heart Rate Delegate](@next)
